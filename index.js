@@ -21,7 +21,7 @@ let runs = 1;
 let currentUser = process.argv[2] || 1;
 let loop = (process.argv[3] === "loop"); 
 
-let lastUser = 16;
+let lastUser = 19;
 
 server.listen(3000, () => {
     // console.log('listening on *:3000');
