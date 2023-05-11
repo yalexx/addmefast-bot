@@ -17,31 +17,39 @@ setInterval(() => {
         setTimeout(() => {
             console.log('addmefast click CONFIRM like');
             document.getElementsByClassName('single_like_button')[0]?.click();
+
+
         }, 5000);
         fbBtnClicked = false;
     } else {
         console.log('addmefast click Like');
-        document.getElementsByClassName('single_like_button')[0]?.click();
+        if (document.getElementsByClassName('single_like_button')[0]) {
+            document.getElementsByClassName('single_like_button')[0]?.click();
+        } else {
+            console.log('no task go to fb post like')
+            location.href = 'https://addmefast.com/free_points/facebook_post_like';
+        }
+
     }
 }, 15000);
 
 setInterval(() => {
     if (!fbBtnClicked && window.location.host === 'www.facebook.com') {
         console.log('try click fb like btn');
-        
+
         if (document.querySelector('[aria-label="Liked"]')) {
             console.log('facebook btn already liked close popup');
             window.close();
         }
-        
+
         let likeBtn = document.querySelector('[aria-label="Like"]');
         if (!likeBtn) {
             likeBtn = document.querySelector('[aria-label="Харесва ми"]');
         }
-        if (!likeBtn){
+        if (!likeBtn) {
             likeBtn = document.querySelector('[aria-label="Следване"]');
         }
-        if (!likeBtn){
+        if (!likeBtn) {
             likeBtn = document.querySelector('[aria-label="Follow"]');
         }
         else {
