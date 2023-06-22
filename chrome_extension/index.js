@@ -23,12 +23,13 @@ setInterval(() => {
         fbBtnClicked = false;
     } else {
         console.log('addmefast click Like');
-        if (document.getElementsByClassName('single_like_button')[0]) {
-            document.getElementsByClassName('single_like_button')[0]?.click();
-        } else {
-            console.log('no task go to fb post like')
-            location.href = 'https://addmefast.com/free_points/facebook_post_like';
-        }
+        //if (document.getElementsByClassName('single_like_button')[0]) {
+        document.getElementsByClassName('single_like_button')[0]?.click();
+        //} else {
+        // console.log('no task go to fb post like')
+
+        // location.href = 'https://addmefast.com/free_points/facebook_post_like';
+        //  }
 
     }
 }, 15000);
@@ -51,6 +52,18 @@ setInterval(() => {
         }
         if (!likeBtn) {
             likeBtn = document.querySelector('[aria-label="Follow"]');
+        }
+        if (!likeBtn) {
+            var anchors = document.querySelectorAll('a');
+            var likeElement;
+
+            for (var i = 0; i < anchors.length; i++) {
+                if (anchors[i].textContent === 'Like') {
+                    likeElement = anchors[i];
+                    break;
+                }
+            }
+            likeBtn = likeElement
         }
         else {
             console.log('facebook btn not found exit in 3 sec');
